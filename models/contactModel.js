@@ -1,4 +1,5 @@
 const { getDB } = require("../database/connect");
+const { ObjectId } = require("mongodb");
 
 //Get all contacts
 async function getContacts() {
@@ -10,9 +11,7 @@ async function getContacts() {
 //Get a single contact
 async function getContactById(id) {
   const db = getDB();
-  const contact = await db
-    .collection("contacts")
-    .findOne({ _id: new ObjectId(id) });
+  const contact = await db.collection("contacts").findOne({ _id: ObjectId });
   return contact;
 }
 module.exports = {
