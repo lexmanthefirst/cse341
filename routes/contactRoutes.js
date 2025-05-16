@@ -26,7 +26,7 @@ router.use(express.json());
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/swagger/schemas/Contact'
+ *                 $ref: '#/components/schemas/Contact'
  */
 router.get('/', contactController.getContacts);
 /**
@@ -47,7 +47,7 @@ router.get('/', contactController.getContacts);
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/swagger/schemas/Contact'
+ *               $ref: '#/components/schemas/Contact'
  *       404:
  *         description: Contact not found
  */
@@ -64,14 +64,14 @@ router.get('/:id', contactController.getContactById);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/swagger/schemas/Contact'
+ *             $ref: '#/components/schemas/Contact'
  *     responses:
  *       201:
  *         description: Contact created
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/swagger/schemas/Contact'
+ *               $ref: '#/components/schemas/Contact'
  *       400:
  *         description: Validation error
  */
@@ -94,19 +94,18 @@ router.post('/', contactController.createContact);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/swagger/schemas/Contact'
+ *             $ref: '#/components/schemas/Contact'
  *     responses:
  *       200:
  *         description: Updated contact
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/swagger/schemas/Contact'
+ *               $ref: '#/components/schemas/Contact'
  *       404:
  *         description: Contact not found
  */
 router.put('/:id', contactController.updateContact);
-
 /**
  * @swagger
  * /contacts/{id}:
