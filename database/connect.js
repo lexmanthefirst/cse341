@@ -1,5 +1,5 @@
-const { MongoClient } = require("mongodb");
-require("dotenv").config();
+const { MongoClient } = require('mongodb');
+require('dotenv').config();
 const uri = process.env.MONGO_URI;
 
 let client;
@@ -9,10 +9,10 @@ async function connectDB() {
   try {
     client = new MongoClient(uri);
     await client.connect();
-    db = client.db("contactDB");
-    console.log("Connected to MongoDB");
+    db = client.db('contactDB');
+    console.log('Connected to MongoDB');
   } catch (error) {
-    console.error("Error connecting to MongoDB:", error);
+    console.error('Error connecting to MongoDB:', error);
   }
 }
 
@@ -22,7 +22,7 @@ module.exports = {
   closeDB: async () => {
     if (client) {
       await client.close();
-      console.log("MongoDB connection closed");
+      console.log('MongoDB connection closed');
     }
   },
 };
